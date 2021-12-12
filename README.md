@@ -1,4 +1,7 @@
-### Hi there 👋
+### Git and Hub???
+
+# Links
+- [My Discord Bot](https://top.gg/bot/815245661506109451)
 
 <!--
 **N1ckPro/N1ckPro** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
