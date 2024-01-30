@@ -1,0 +1,66 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":semanticCommitTypeAll(build)",
+        "schedule:automergeWeekends",
+        "schedule:monthly"
+    ],
+    "labels": [
+        "dependencies"
+    ],
+    "npm": {
+        "lockFileMaintenance": {
+            "automerge": false,
+            "commitMessageAction": "yarn.lock updates",
+            "enabled": true,
+            "extends": [
+                "schedule:quarterly"
+            ],
+            "groupName": "yarn.lock updates"
+        },
+        "packageRules": [
+            {
+                "automerge": true,
+                "groupName": "devDependencies (non-major)",
+                "matchCurrentVersion": "!/^0/",
+                "matchDepTypes": [
+                    "devDependencies"
+                ],
+                "matchUpdateTypes": [
+                    "patch",
+                    "minor"
+                ]
+            },
+            {
+                "automerge": true,
+                "groupName": "dependencies (patch)",
+                "labels": [
+                    "dependencies"
+                ],
+                "matchDepTypes": [
+                    "dependencies"
+                ],
+                "matchUpdateTypes": [
+                    "patch"
+                ]
+            },
+            {
+                "matchDepTypes": [
+                    "dependencies",
+                    "devDependencies"
+                ],
+                "matchUpdateTypes": [
+                    "major"
+                ]
+            },
+            {
+                "enabled": false,
+                "matchDepTypes": [
+                    "engines"
+                ]
+            }
+        ],
+        "rangeStrategy": "bump"
+    }
+}
